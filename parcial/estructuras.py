@@ -1,3 +1,7 @@
+import mainPersonaje
+import enemigos
+import armas
+
 class MaxHeap:
     def __init__(self):
         self.heap = []
