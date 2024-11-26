@@ -46,3 +46,24 @@ class MaxHeap:
         self.heap[0] = self.heap.pop()
         self.burbujeo_abajo(0)
         return root
+
+
+class Habilidad:
+    def __init__(self, nombre, tipo):      
+        self.nombre = nombre
+        self.tipo = tipo
+        self.hijos = []
+
+    def agregar_habilidad_hijo(self, habilidad): 
+        self.hijos.append(habilidad)
+
+    def arbol_vacio(raiz):
+	    return raiz == None        #Retorna si el Arbol esta vacio
+
+arbol_habilidades = Habilidad("Habilidades", "raíz")   #Raiz del Arbol 
+defensivas = Habilidad("Habilidades Defensivas", "tipo") #Hijo de la raiz, contiene habilidades defensivas 
+ofensivas = Habilidad("Habilidades Ofensivas", "tipo")  #Hijo de la raiz, contiene habilidades ofensivasº
+arbol_habilidades.agregar_habilidad_hija(defensivas)
+arbol_habilidades.agregar_habilidad_hija(ofensivas) 
+    
+
