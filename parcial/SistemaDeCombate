@@ -2,18 +2,18 @@ class MaxHeap:
     def __init__(self):
         self.heap = []
 
-    def Swap(self, i, j):
+    def swapp(self, i, j):
         """Intercambia dos nodos en el heap."""
         self.heap[i], self.heap[j] = self.heap[j], self.heap[i]
 
-    def BurbujeoArriba(self, index):
+    def burbujeo_arriba(self, index):
         """Realiza el burbujeo hacia arriba para mantener la propiedad del MaxHeap."""
         parent = (index - 1) // 2
         if index > 0 and self.heap[index].attSpeed > self.heap[parent].attSpeed:
-            self.Swap(index, parent)
-            self.BurbujeoArriba(parent)
+            self.swapp(index, parent)
+            self.burbujeo_arriba(parent)
 
-    def BurbujeoAbajo(self, index):
+    def burbujeo_abajo(self, index):
         """Realiza el burbujeo hacia abajo para mantener la propiedad del MaxHeap."""
         left = 2 * index + 1
         right = 2 * index + 2
@@ -24,15 +24,15 @@ class MaxHeap:
         if right < len(self.heap) and self.heap[right].attSpeed > self.heap[largest].attSpeed:
             largest = right
         if largest != index:
-            self.Swap(index, largest)
-            self.BurbujeoAbajo(largest)
+            self.swapp(index, largest)
+            self.burbujeo_abajo(largest)
 
-    def Insert(self, value):
+    def insert(self, value):
         """Inserta un nuevo valor en el heap."""
         self.heap.append(value)
-        self.BurbujeoArriba(len(self.heap) - 1)
+        self.burbujeo_arriba(len(self.heap) - 1)
 
-    def ExtractMax(self):
+    def extract_max(self):
         """Extrae y devuelve el máximo valor del heap."""
         if len(self.heap) == 0:
             return None
@@ -40,5 +40,5 @@ class MaxHeap:
             return self.heap.pop()
         root = self.heap[0]
         self.heap[0] = self.heap.pop()
-        self.BurbujeoAbajo(0)
+        self.burbujeo_abajo(0)
         return root
